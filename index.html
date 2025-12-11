@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Wallet Dashboard</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-icon">V</div>
+            <span>Voyage</span>
+        </div>
+        
+        
+        <div class="nav-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search transactions, bookings...">
+        </div>
+        
+        <div class="nav-actions">
+            <button class="notification-btn" id="notificationBtn">
+                🔔
+                <span class="notification-badge"></span>
+            </button>
+            <div class="user-avatar">M</div>
+        </div>
+        
+        <!-- Notification Dropdown -->
+        <div class="notification-dropdown" id="notificationDropdown">
+            <div class="notification-header">
+                <h3>Notifications</h3>
+                <button class="mark-read">Mark all as read</button>
+            </div>
+            <div class="notification-item">
+                <div>Your flight booking is confirmed</div>
+                <div class="notification-time">10 minutes ago</div>
+            </div>
+            <div class="notification-item">
+                <div>You received ₹5,000 from Rahul</div>
+                <div class="notification-time">2 hours ago</div>
+            </div>
+            <div class="notification-item">
+                <div>Payment of ₹1,200 completed</div>
+                <div class="notification-time">Yesterday</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container">
+        <!-- Left: Transactions -->
+        <div class="panel latest">
+            <h3>Latest transactions</h3>
+            <div class="tx-list">
+                <div class="tx">
+                    <div>
+                        <div class="cat">Today • Food</div>
+                        <div style="font-size:12px;color:var(--muted)">10:24 AM</div>
+                    </div>
+                    <div class="amt" style="color:var(--danger)">- ₹150.00</div>
+                </div>
+                <div class="tx">
+                    <div>
+                        <div class="cat">25-06 • Fashion</div>
+                        <div style="font-size:12px;color:var(--muted)">Online</div>
+                    </div>
+                    <div class="amt" style="color:var(--danger)">- ₹2,499.00</div>
+                </div>
+                <div class="tx">
+                    <div>
+                        <div class="cat">15-05 • Loan pay</div>
+                        <div style="font-size:12px;color:var(--muted)">Bank transfer</div>
+                    </div>
+                    <div class="amt" style="color:var(--success)">+ ₹81,000</div>
+                </div>
+                <div class="tx">
+                    <div>
+                        <div class="cat">18-04 • Beauty</div>
+                        <div style="font-size:12px;color:var(--muted)">Card</div>
+                    </div>
+                    <div class="amt" style="color:var(--danger)">- ₹150.00</div>
+                </div>
+                <div class="tx">
+                    <div>
+                        <div class="cat">12-04 • Salary</div>
+                        <div style="font-size:12px;color:var(--muted)">Direct deposit</div>
+                    </div>
+                    <div class="amt" style="color:var(--success)">+ ₹50,000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Top: Book Trip -->
+        <div class="panel book">
+            <h3>Book a new trip</h3>
+            <div class="row">
+                <select id="tripType">
+                    <option>Flights</option>
+                    <option>Riders</option>
+                    <option>Bus / Train</option>
+                </select>
+                <select id="tripClass" style="width:120px">
+                    <option>Economy</option>
+                    <option>Business</option>
+                </select>
+            </div>
+            <div class="row">
+                <input id="fromInput" placeholder="From (city or station)" />
+                <input id="toInput" placeholder="To (city or station)" />
+            </div>
+            <div class="row">
+                <input id="dateInput" type="date" style="max-width:220px"/>
+                <button class="search-btn" id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <!-- Right Top: Wallet -->
+        <div class="panel wallet">
+            <h3>Wallet</h3>
+            <div class="amount" id="walletAmount">₹ 70,000</div>
+            <div style="font-size:12px;color:var(--muted)">Available balance</div>
+            <div class="actions">
+                <button class="btn primary" id="depositBtn">Deposit</button>
+                <button class="btn" id="withdrawBtn">Withdraw</button>
+            </div>
+            <div style="font-size:12px;color:var(--muted);margin-top:12px">
+                Recent expense: ₹ 3,552 • Last update 1h ago
+            </div>
+        </div>
+
+        <!-- Middle Bottom: Cards -->
+        <div class="cards">
+            <div class="panel">
+                <h3>Rides</h3>
+                <div class="list">
+                    <div class="item"><span>02-09-2025</span><strong>₹120</strong></div>
+                    <div class="item"><span>28-11-2025</span><strong>₹30</strong></div>
+                    <div class="item"><span>19-11-2025</span><strong>₹90</strong></div>
+                </div>
+                <div class="total">Total: ₹210</div>
+            </div>
+            <div class="panel">
+                <h3>Flights</h3>
+                <div class="list">
+                    <div class="item"><span>05-10-2025</span><strong>₹30,000</strong></div>
+                    <div class="item"><span>09-10-2025</span><strong>₹45,000</strong></div>
+                </div>
+                <div class="total">Total: ₹75,000</div>
+            </div>
+            <div class="panel">
+                <h3>Bus / Train Tickets</h3>
+                <div class="list">
+                    <div class="item"><span>09-09-2025</span><strong>₹30</strong></div>
+                    <div class="item"><span>11-11-2025</span><strong>₹80</strong></div>
+                    <div class="item"><span>13-12-2025</span><strong>₹28</strong></div>
+                </div>
+                <div class="total">Total: ₹138</div>
+            </div>
+            <div class="panel">
+                <h3>Saved (placeholder)</h3>
+                <div style="height:150px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700">
+                    No saved items yet
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Bottom: Summary -->
+        <div class="right-top">
+            <div class="panel">
+                <h3>Summary</h3>
+                <div style="display:flex;justify-content:space-between">
+                    <div>
+                        <div style="font-size:13px;color:var(--muted)">Monthly spend</div>
+                        <div style="font-weight:800;font-size:20px">₹ 12,450</div>
+                    </div>
+                    <div>
+                        <div style="font-size:13px;color:var(--muted)">Income</div>
+                        <div style="font-weight:800;font-size:20px;color:var(--success)">₹ 81,000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel">
+                <h3>Quick actions</h3>
+                <div style="display:flex;gap:8px">
+                    <button class="btn" id="sendBtn" style="flex:1">Send</button>
+                    <button class="btn" id="requestBtn" style="flex:1">Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
