@@ -1,1 +1,1 @@
-this is dashboard of trvale app using html, css, js
+this is dashboard of a travel WebApp using html, css, js
